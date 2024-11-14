@@ -1,4 +1,11 @@
-{ stdenv, lib, ocaml, ocamlPackages, gnum4, fetchFromGitLab, }:
+{
+  stdenv,
+  lib,
+  ocaml,
+  ocamlPackages,
+  gnum4,
+  fetchFromGitLab,
+}:
 stdenv.mkDerivation rec {
   pname = "caper";
   version = "0.9";
@@ -34,8 +41,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
-    description =
-      "Tool for understanding and processing pcap (packet capture) expressions";
+    description = "Tool for understanding and processing pcap (packet capture) expressions";
     longDescription = ''
       Caper is a tool for understanding and processing "pcap expressions" (also known as *tcpdump filters*) which are used for network packet analysis.
       Caper can be used for:
