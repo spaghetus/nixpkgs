@@ -30,16 +30,20 @@ stdenv.mkDerivation rec {
   ];
 
   buildPhase = ''
+    runHook preBuild
     CAPER_WITH_ENGLISH=yes bash build.sh caper.native
+    runHook postBuild
   '';
 
   installPhase = ''
+    runHook preInstall
     mkdir -p $out/bin
     cp caper.native $out/bin/caper
+    runHook postInstall
   '';
 
   meta = {
-    description = "A tool for understanding and processing pcap (packet capture) expressions";
+    description = "Tool for understanding and processing pcap (packet capture) expressions";
     longDescription = ''
       Caper is a tool for understanding and processing "pcap expressions" (also known as *tcpdump filters*) which are used for network packet analysis.
       Caper can be used for:
